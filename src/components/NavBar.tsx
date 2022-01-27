@@ -1,39 +1,28 @@
-import * as React from "react"
 import {
-    Box,
-    Flex,
-    Text,
-    IconButton,
-    Button,
-    Stack,
-    Collapse,
-    Icon,
-    Link,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-    useColorModeValue,
-    useBreakpointValue,
-    useDisclosure,
-    useColorMode,
-    Heading,
-} from '@chakra-ui/react';
-import {
-    HamburgerIcon,
-    CloseIcon,
-    ChevronDownIcon,
-    ChevronRightIcon,
-    MoonIcon,
-    SunIcon,
+    ChevronDownIcon, CloseIcon, HamburgerIcon, MoonIcon,
+    SunIcon
 } from '@chakra-ui/icons';
+import {
+    Box, Button, Collapse, Container, Flex, Icon, IconButton, Link,
+    Popover, Stack, Text, useBreakpointValue, useColorMode, useColorModeValue, useDisclosure
+} from '@chakra-ui/react';
+import { Link as GatsbyLink } from 'gatsby';
+import * as React from "react";
+import useSound from 'use-sound';
+import off from '../assets/audio/switch-off.mp3';
+import on from '../assets/audio/switch-on.mp3';
 
-import { Link as GatsbyLink } from 'gatsby'
 export default function NavBar() {
     const { isOpen, onToggle } = useDisclosure();
     const { colorMode, toggleColorMode } = useColorMode();
+    const [playOn] = useSound(on);
+    const [playOff] = useSound(off);
 
     return (
+
+
         <Box>
+
             <Flex
                 bg={useColorModeValue('white', 'gray.800')}
                 color={useColorModeValue('gray.600', 'white')}
@@ -43,52 +32,70 @@ export default function NavBar() {
                 borderBottom={1}
                 borderStyle={'solid'}
                 borderColor={useColorModeValue('gray.200', 'gray.900')}
-                align={'center'}>
-                <Flex
-                    flex={{ base: 1, md: 'auto' }}
-                    ml={{ base: -2 }}
-                    display={{ base: 'flex', md: 'none' }}>
-                    <IconButton
-                        onClick={onToggle}
-                        icon={
-                            isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-                        }
-                        variant={'ghost'}
-                        aria-label={'Toggle Navigation'}
-                    />
-                </Flex>
-                <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} alignItems={'center'}>
-                    <Text
-                        fontWeight={'bold'}
-                        textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-                        fontFamily={'heading'}
-                        color={useColorModeValue('gray.800', 'white')}>
-                        Fernando Belotto
-                    </Text>
+                align={'center'}
+            >
+                <Container maxW='container.md'>
 
-                    <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-                        <DesktopNav />
+                    <Flex
+                        align={'center'}
+                    >
+
+
+                        <Flex
+                            flex={{ base: 1, md: 'auto' }}
+                            ml={{ base: -2 }}
+                            display={{ base: 'flex', md: 'none' }}>
+                            <IconButton
+                                onClick={onToggle}
+                                icon={
+                                    isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+                                }
+                                variant={'ghost'}
+                                aria-label={'Toggle Navigation'}
+                            />
+                        </Flex>
+                        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} alignItems={'center'}>
+                            <Text
+                                fontWeight={'bold'}
+                                textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+                                fontFamily={'heading'}
+                                color={useColorModeValue('gray.800', 'white')}>
+                                Fernando Belotto
+                            </Text>
+
+                            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+                                <DesktopNav />
+                            </Flex>
+                        </Flex>
+
+                        <Stack
+                            flex={{ base: 1, md: 0 }}
+                            justify={'flex-end'}
+                            direction={'row'}
+                            spacing={6}>
+
+                            <Button onClick={() => {
+                                toggleColorMode();
+                                colorMode === 'light' ? playOn() : playOff()
+                            }} size='sm'>
+                                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                            </Button>
+
+
+                        </Stack>
                     </Flex>
-                </Flex>
 
-                <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={'flex-end'}
-                    direction={'row'}
-                    spacing={6}>
+                </Container>
 
-                    <Button onClick={toggleColorMode} size='sm'>
-                        {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-                    </Button>
-
-
-                </Stack>
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
                 <MobileNav />
             </Collapse>
+
+
         </Box>
+
     );
 }
 
@@ -102,11 +109,11 @@ const DesktopNav = () => {
             {NAV_ITEMS.map((navItem) => (
                 <Box key={navItem.label}>
                     <Popover trigger={'hover'} placement={'bottom-start'}>
-                        <Link as={GatsbyLink} to={navItem.href}>
-                            <Button size={'sm'} >
-                                {navItem.label}
-                            </Button>
-                        </Link>
+
+                        <Button size={'sm'} as={GatsbyLink} to={navItem.href}>
+                            {navItem.label}
+                        </Button>
+
                         {/* <Link
                                 p={2}
                                 href={navItem.href ?? '#'}
