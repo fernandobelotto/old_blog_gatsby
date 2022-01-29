@@ -48,5 +48,11 @@ module.exports = {
       },
       __key: "pages"
     },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: `./src/pages`,
+      },
+    },
   ]
 };

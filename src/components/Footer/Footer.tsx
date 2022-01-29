@@ -5,9 +5,7 @@ import { Logo } from './Logo'
 import { SocialMediaLinks } from './SocialMediaLinks'
 
 export const Footer = () => (
-  <Container maxW='container.md' py='10'>
-
-
+  <Container maxW='container.lg' py='10'>
     <Stack>
       <Stack direction="row" spacing="4" align="center" justify="space-between">
         <Logo />
@@ -15,6 +13,5 @@ export const Footer = () => (
       </Stack>
       <Copyright alignSelf={{ base: 'center', sm: 'start' }} />
     </Stack>
-
   </Container>
 )

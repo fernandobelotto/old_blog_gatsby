@@ -19,10 +19,7 @@ export default function NavBar() {
     const [playOff] = useSound(off);
 
     return (
-
-
-        <Box>
-
+        <>
             <Flex
                 bg={useColorModeValue('white', 'gray.800')}
                 color={useColorModeValue('gray.600', 'white')}
@@ -34,13 +31,9 @@ export default function NavBar() {
                 borderColor={useColorModeValue('gray.200', 'gray.900')}
                 align={'center'}
             >
-                <Container maxW='container.md'>
+                <Container maxW='container.lg'>
 
-                    <Flex
-                        align={'center'}
-                    >
-
-
+                    <Flex align={'center'}>
                         <Flex
                             flex={{ base: 1, md: 'auto' }}
                             ml={{ base: -2 }}
@@ -56,45 +49,37 @@ export default function NavBar() {
                         </Flex>
                         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} alignItems={'center'}>
                             <Text
+                                as={GatsbyLink}
+                                to='/'
                                 fontWeight={'bold'}
                                 textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                                 fontFamily={'heading'}
                                 color={useColorModeValue('gray.800', 'white')}>
                                 Fernando Belotto
                             </Text>
-
                             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                                 <DesktopNav />
                             </Flex>
                         </Flex>
-
                         <Stack
                             flex={{ base: 1, md: 0 }}
                             justify={'flex-end'}
                             direction={'row'}
                             spacing={6}>
-
                             <Button onClick={() => {
                                 toggleColorMode();
                                 colorMode === 'light' ? playOn() : playOff()
                             }} size='sm'>
                                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                             </Button>
-
-
                         </Stack>
                     </Flex>
-
                 </Container>
-
             </Flex>
-
             <Collapse in={isOpen} animateOpacity>
                 <MobileNav />
             </Collapse>
-
-
-        </Box>
+        </>
 
     );
 }
@@ -205,15 +190,9 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
     {
-        label: 'Home',
-        href: '/',
-    },
-
-    {
         label: 'Blog',
         href: '/blog',
     },
-
     {
         label: 'Projects',
         href: '/projects',
@@ -221,5 +200,9 @@ const NAV_ITEMS: Array<NavItem> = [
     {
         label: 'About',
         href: '/about',
+    },
+    {
+        label: 'Contact',
+        href: '/contact',
     },
 ];
