@@ -10,7 +10,7 @@ import { IMAGE_URL_04 } from '../../constants/links'
 export default function ContactPage() {
     return (
         <>
-            <Layout pageTitle='Contact' subTitle='' >
+            <Layout pageTitle='Contact' subTitle='There many ways to get in touch with me' >
                 <CustomImage imageUrl={IMAGE_URL_04} />
                 <VStack mt='7' spacing={10}>
 
