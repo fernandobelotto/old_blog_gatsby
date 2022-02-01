@@ -11,12 +11,16 @@ import * as React from "react";
 import useSound from 'use-sound';
 import off from '../assets/audio/switch-off.mp3';
 import on from '../assets/audio/switch-on.mp3';
+import LanguageToggle from './LanguageToggle';
+
 
 export default function NavBar() {
     const { isOpen, onToggle } = useDisclosure();
     const { colorMode, toggleColorMode } = useColorMode();
     const [playOn] = useSound(on);
     const [playOff] = useSound(off);
+
+
 
     return (
         <>
@@ -66,6 +70,8 @@ export default function NavBar() {
                             justify={'flex-end'}
                             direction={'row'}
                             spacing={6}>
+
+                            <LanguageToggle />
                             <Button onClick={() => {
                                 toggleColorMode();
                                 colorMode === 'light' ? playOn() : playOff()

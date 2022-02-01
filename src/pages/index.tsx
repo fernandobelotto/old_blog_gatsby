@@ -1,18 +1,22 @@
 import { Box, Heading, Text, VStack } from "@chakra-ui/react"
 import * as React from "react"
+import { useTranslation } from "react-i18next"
 import CustomImage from "../components/CustomImage"
 import CustomLink from "../components/CustomLink"
 import Layout from "../components/Layout"
 import { IMAGE_URL_02 } from "../constants/links"
 
 export default function HomePage() {
+
+  const { t } = useTranslation()
+
   return (
     <Box>
       <Layout pageTitle='Fernando Belotto'
-        subTitle='Software developer Based in São Paulo, Brazil'>
+        subTitle={t('Software developer based in São Paulo, Brazil')}>
         <CustomImage imageUrl={IMAGE_URL_02} />
         <Heading fontSize={'xl'} mt='5' fontWeight={'medium'}>
-          Welcome to my personal website, here you can checkout a bit about me, my articles and my pass projects
+          {t('Welcome to my personal website, here you can checkout a bit about me, my articles and my pass projects')}
         </Heading>
         <VStack spacing={2} mt='5' align='flex-start'>
           <Text fontSize={'xl'} >
