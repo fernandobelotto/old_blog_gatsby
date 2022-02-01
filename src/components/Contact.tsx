@@ -13,7 +13,7 @@ export function ContactForm() {
             borderColor={useColorModeValue('gray.300', 'gray.500')}
             color={useColorModeValue('gray.700', 'whiteAlpha.900')}
             shadow="base"
-            width={['100%', '53%']}
+            width={['100%', '100%', '60%',]}
         >
             <VStack spacing={5}>
                 <FormControl isRequired>

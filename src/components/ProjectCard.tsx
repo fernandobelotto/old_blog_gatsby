@@ -8,10 +8,13 @@ import {
     Box,
     Image as ChakraImage,
     Image,
+    Flex,
+    Grid,
 } from "@chakra-ui/react";
 import { IMAGE_URL_02 } from "../constants/links";
+import { map } from "core-js/core/array";
 
-export default function ProjectCard({ name, description }) {
+export default function ProjectCard({ name, description, tags, imageUrl }) {
     //   const { data, loading, error } = usePalette(logo[0].thumbnails.large.url);
 
     const getTypeColor = () => {
@@ -36,13 +39,11 @@ export default function ProjectCard({ name, description }) {
         >
 
             <Image
-                src={IMAGE_URL_02}
-                // height={36}
+                src={imageUrl}
                 width={'100%'}
                 height={'100px'}
                 roundedTopLeft={'lg'}
                 roundedTopRight={'lg'}
-
                 objectFit={'cover'}
                 layout="fixed"
             />
@@ -50,14 +51,19 @@ export default function ProjectCard({ name, description }) {
 
             <VStack align="start" justify="flex-start" p='5'>
 
-                <HStack>
-                    <Text fontWeight="bold" fontSize="md" noOfLines={2}>
-                        {name}
-                    </Text>
-                    <Tag size="sm" colorScheme={getTypeColor()}>
-                        type
-                    </Tag>
-                </HStack>
+                <Text fontWeight="bold" fontSize="md" noOfLines={2}>
+                    {name}
+                </Text>
+                <Flex flexWrap={'wrap'} >
+                    {tags.map((tag) => {
+                        return (
+                            <Tag size="sm" marginX='1' mb='1' colorScheme={getTypeColor()}>
+                                {tag}
+                            </Tag>
+                        )
+                    })}
+
+                </Flex>
 
                 <Text
                     fontSize="sm"
@@ -67,6 +73,6 @@ export default function ProjectCard({ name, description }) {
                 </Text>
 
             </VStack>
-        </VStack>
+        </VStack >
     );
 };

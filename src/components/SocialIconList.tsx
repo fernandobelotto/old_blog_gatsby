@@ -4,13 +4,13 @@ import {
     FaLinkedin, FaStackOverflow, FaWhatsapp
 } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import { HStack, Icon as GatsbyIcon } from '@chakra-ui/react'
+import { Box, Flex, HStack, Icon as GatsbyIcon } from '@chakra-ui/react'
 import { Tooltip } from 'react-tippy';
 import { SiCodepen, SiCodesandbox, SiDevdotto, SiMedium, SiTelegram } from 'react-icons/si';
 
 function IconLink({ Icon, href, target, aria }: any) {
     return (
-        <>
+        <Box m='2'>
             <Tooltip
                 title={aria}
                 position="bottom"
@@ -18,7 +18,6 @@ function IconLink({ Icon, href, target, aria }: any) {
 
                 <a href={href} target={target ? target : `_blank`} rel="noopener" aria-label={aria}>
                     <GatsbyIcon
-                        // p={10}
                         as={Icon}
                         fontSize={'4xl'}
                         _hover={{
@@ -30,7 +29,7 @@ function IconLink({ Icon, href, target, aria }: any) {
                 </a>
             </Tooltip>
 
-        </>
+        </Box>
 
     );
 }
@@ -40,7 +39,8 @@ function IconLink({ Icon, href, target, aria }: any) {
 export function SocialIconList() {
     return (
         <>
-            <HStack spacing={5} mt='5'>
+            <Flex spacing={5} mt='5' wrap={'wrap'} flexDir='row' alignItems={'end'} justifyContent={'start'} >
+
                 <IconLink aria='Email' href="mailto:fernando.bbosco@gmail.com" Icon={HiOutlineMail} />
                 <IconLink aria='WhatApp' href="https://wa.me/5519997773727" Icon={FaWhatsapp} />
                 <IconLink aria='Telegram' href="https://t.me/fernandobelotto" Icon={SiTelegram} />
@@ -51,7 +51,9 @@ export function SocialIconList() {
                 <IconLink aria='Codesandbox' href="https://codesandbox.io/u/fernandobelotto" Icon={SiCodesandbox} />
                 <IconLink aria='Dev.to' href="https://dev.to/fernandobelotto" Icon={SiDevdotto} />
                 <IconLink aria='Medium' href="https://medium.com/@fernandobelotto" Icon={SiMedium} />
-            </HStack>
+
+            </Flex>
+
         </>
     );
 }
