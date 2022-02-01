@@ -12,6 +12,7 @@ import useSound from 'use-sound';
 import off from '../assets/audio/switch-off.mp3';
 import on from '../assets/audio/switch-on.mp3';
 import LanguageToggle from './LanguageToggle';
+import { useTranslation } from "react-i18next";
 
 
 export default function NavBar() {
@@ -91,32 +92,17 @@ export default function NavBar() {
 }
 
 const DesktopNav = () => {
-    const linkColor = useColorModeValue('gray.600', 'gray.200');
-    const linkHoverColor = useColorModeValue('gray.800', 'white');
-    const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+
+    const { t } = useTranslation()
 
     return (
         <Stack direction={'row'} spacing={4}>
             {NAV_ITEMS.map((navItem) => (
                 <Box key={navItem.label}>
                     <Popover trigger={'hover'} placement={'bottom-start'}>
-
                         <Button size={'sm'} as={GatsbyLink} to={navItem.href}>
-                            {navItem.label}
+                            {t(navItem.label)}
                         </Button>
-
-                        {/* <Link
-                                p={2}
-                                href={navItem.href ?? '#'}
-                                fontSize={'sm'}
-                                fontWeight={500}
-                                color={linkColor}
-                                _hover={{
-                                    textDecoration: 'none',
-                                    color: linkHoverColor,
-                                }}>
-                            </Link> */}
-
                     </Popover>
                 </Box>
             ))}
