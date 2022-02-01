@@ -1,8 +1,8 @@
-import { Box, Button, Flex, Heading, HStack, Link, ScaleFade, SimpleGrid, SlideFade, Tag, Text, useToast, VStack } from '@chakra-ui/react'
-import React, { ReactElement } from 'react'
-import Layout from '../../components/Layout'
-import dayjs from 'dayjs'
-import { TechList } from '../../components/TechList';
+import { Box, Flex, Heading, HStack, SimpleGrid, Tag, Text, VStack } from '@chakra-ui/react';
+import dayjs from 'dayjs';
+import React, { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
+import Layout from '../../components/Layout';
 
 
 function BlogCard(props) {
@@ -32,46 +32,6 @@ function BlogCard(props) {
 
 export default function BlogPage(): ReactElement {
 
-    // const data = [
-    //     {
-    //         title: 'Entendendo a Redux Toolkit', description: 'Neste biografia eu te explico como usar a redux toolkit nos seus apps react', id: '1234', data: dayjs().format('DD/MM/YY'),
-    //         tags: ['react', 'javascript', 'typescript']
-    //     },
-    //     {
-    //         title: 'Lifecycle no React em profundidade', description: 'description bla blabl bla blaa', id: '1234', data: dayjs().format('DD/MM/YY'),
-    //         tags: ['react', 'javascript', 'typescript']
-    //     },
-    //     {
-    //         title: 'title', description: 'description bla blabl bla blaa', id: '1234', data: dayjs().format('DD/MM/YY'),
-    //         tags: ['react', 'javascript', 'typescript']
-    //     },
-    //     {
-    //         title: 'title', description: 'description bla blabl bla blaa', id: '1234', data: dayjs().format('DD/MM/YY'),
-    //         tags: ['react', 'javascript', 'typescript']
-    //     },
-    //     {
-    //         title: 'title', description: 'description bla blabl bla blaa', id: '1234', data: dayjs().format('DD/MM/YY'),
-    //         tags: ['react', 'javascript', 'typescript']
-    //     },
-    //     {
-    //         title: 'title', description: 'description bla blabl bla blaa', id: '1234', data: dayjs().format('DD/MM/YY'),
-    //         tags: ['react', 'javascript', 'typescript']
-    //     },
-    //     {
-    //         title: 'title', description: 'description bla blabl bla blaa', id: '1234', data: dayjs().format('DD/MM/YY'),
-    //         tags: ['react', 'javascript', 'typescript']
-    //     },
-    //     {
-    //         title: 'title', description: 'description bla blabl bla blaa', id: '1234', data: dayjs().format('DD/MM/YY'),
-    //         tags: ['react', 'javascript', 'typescript']
-    //     },
-    //     {
-    //         title: 'title', description: 'description bla blabl bla blaa', id: '1234', data: dayjs().format('DD/MM/YY'),
-    //         tags: ['react', 'javascript', 'typescript']
-    //     }
-    // ]
-
-
     const data = []
 
     const element = {
@@ -83,10 +43,11 @@ export default function BlogPage(): ReactElement {
         data.push(element)
     }
 
-    const toast = useToast()
+    const { t } = useTranslation()
+
     return (
         <>
-            <Layout pageTitle='Blog' subTitle='Articles about software development'>
+            <Layout pageTitle='Blog' subTitle={t('Articles about software development')}>
                 <SimpleGrid columns={2} spacing={5} minChildWidth={'300px'}>
                     {data.map((blog) => {
                         return (

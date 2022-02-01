@@ -12,7 +12,7 @@ export default function AboutPage() {
             <Layout pageTitle={t('About')} subTitle={t('Who is Fernando Belotto?')} >
                 <CustomImage imageUrl={`https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80`} />
                 <Text fontSize={'xl'} p='10'>{t('Fernando is a software developer passionated about creating unique web experiences. He started his carrear in an software house base in Campinas city and there he work on Angular, React and Vue projects for both small and large brazilian companies. There he worked using all sorts of libraries, patterns and techniques. After that he start working at dLocal, integrating the first brazilian tech team in the uruguayan company. Fernando focus his develeping in performance, acessibility and responsiviness')}</Text>
-                <Heading mt='5' mb='0'>{t('Technologies and Tools')}</Heading>
+                <Heading mt='5' mb='0'>{t('Technologies')}</Heading>
                 <Text fontSize={'2xl'}>{t('That I find amazing and love to work with')}</Text>
                 <TechList mt='4' />
             </Layout>

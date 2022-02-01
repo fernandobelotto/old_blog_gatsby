@@ -4,7 +4,18 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: [
+    "gatsby-plugin-layout",
     "gatsby-plugin-mdx",
+
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "posts",
+        path: `${__dirname}/content/posts/`,
+      },
+    },
+
+
     "@chakra-ui/gatsby-plugin",
     {
       resolve: 'gatsby-source-contentful',

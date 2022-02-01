@@ -14,7 +14,6 @@ export default function ContactPage() {
             <Layout pageTitle={t('Contact')} subTitle={t('There many ways to get in touch with me')} >
                 <CustomImage imageUrl={IMAGE_URL_04} />
                 <VStack mt='7' spacing={10}>
-
                     <SocialIconList />
                     <ContactForm />
                 </VStack>

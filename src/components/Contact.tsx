@@ -1,9 +1,8 @@
 import { EmailIcon } from '@chakra-ui/icons';
-import { Box, useColorModeValue, VStack, FormControl, Input, FormLabel, InputGroup, InputLeftElement, Textarea, Button } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Button, FormControl, FormLabel, Input, InputGroup, InputLeftElement, Textarea, useColorModeValue, VStack } from '@chakra-ui/react';
+import React from 'react';
+import { BsPerson } from 'react-icons/bs';
 
-import { BsPerson } from 'react-icons/bs'
-import { MdOutlineEmail } from 'react-icons/md'
 export function ContactForm() {
     return <>
         <Box
@@ -15,12 +14,10 @@ export function ContactForm() {
             color={useColorModeValue('gray.700', 'whiteAlpha.900')}
             shadow="base"
             width={['100%', '53%']}
-
         >
             <VStack spacing={5}>
                 <FormControl isRequired>
                     <FormLabel>Name</FormLabel>
-
                     <InputGroup>
                         <InputLeftElement children={<BsPerson />} />
                         <Input colorScheme={'gray'} type="text" name="name" placeholder="Your Name" />

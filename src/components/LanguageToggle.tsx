@@ -5,7 +5,7 @@ import i18n from '../i18n'
 
 export default function LanguageToggle() {
 
-    const [language, setLanguage] = React.useState<string>('br')
+    const [language, setLanguage] = React.useState<string>('us')
 
     React.useEffect(() => {
         i18n.changeLanguage(language)

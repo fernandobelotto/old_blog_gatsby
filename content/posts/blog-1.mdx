@@ -1,0 +1,143 @@
+---
+title: What is lifecycle in React?
+---
+
+Simply and directly, lifecycle refers to the 3 stages that a React component goes through during its existence.
+Every component in React goes through three stages which are:
+
+1. **Mounting**
+2. **Update**
+3. **Unmounting**
+
+> It is important that you, as a React developer, know these 3 phases and what methods are associated with each of them. These methods can be overwritten in class components to perform side effects and manage the state of the component.
+> 
+
+Let's take a look at these methods in each of the phases:
+
+### Mouting
+
+This is the initial phase of any component. It corresponds to the moment when the component will be inserted in the DOM. That is, when it starts to exist on your browser's screen.
+In this phase there are 4 methods that are executed in the following order:
+
+1. contructor()
+2. getDerivedStateFromProps()
+3. render()
+4. componentDidMount()
+
+Of these methods, only the third (render) is mandatory when creating a class component. The others are left to the developer to implement or not in their component.
+
+The first, `constructor`, is used in React components to set the initial state value.
+
+The `getDerivedStateFromProps` method is used for one purpose only: It allows a component to update its state through a change of props. See two examples of its use [here](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props) and [here](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#fetching-external-data-when-props-change). In the following example I set the state of the counter with the value passed in the prop \_start_value.
+
+The third and only mandatory is `render`. When called, it must examine this.props and this.state and return one of the following types: a React element, a Portal, a string, a number, a boolean, or the value null. The `render` method **should remain pure**, that is, do not create side effects (such as API calls) in it.
+
+```
+import React from "react";
+
+class MyComponent extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = { counter: 0 }
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        return { counter: props.initialValue }
+    }
+
+    render() {
+        return <h1>Hello Lifecycle</h1>
+    }
+
+    componentDidMount() {
+        console.log('Here my component has rendered 😅')
+    }
+}
+
+```
+
+Today it is no longer necessary for you to call the constructor to initialize a state, which eliminates the need for it. The getDerivedStateFromProps method adds some complexity to our component and overall you won't need to use it. [This post on the React blog indicates why not to use derived state](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)
+
+### Updating
+
+When the component overwrites some props change (i.e. its parent component passes new props) or when the internal state overwrites a change (by this.setState({}) for example) the component enters the updating phase.
+
+Just like in the assembly phase, a defined sequence of methods will be called. They are:
+
+1. getDerivedStateFromProps()
+2. shouldComponentUpdate()
+3. render()
+4. getSnapshotBeforeUpdate()
+5. componentDidUpdate()
+
+The first method, `getDerivedStateFromProps` we already know and covered in the assembly phase. Its behavior is the same here in the update phase.
+
+The second method, `shouldComponentUpdate` will determine whether the methods in the sequence are executed or not. That is, it will determine whether the component should be rendered again or not. This method exists only as a way for us to avoid unnecessary updating, and thus optimize the performance of our applications.
+
+If the `this.forceUpdate()` method has been called the update will not call shouldComponentUpdate, and the component will be forcefully updated as the name implies.
+
+`getSnapshotBeforeUpdate` is then called just before the most recently rendered output is committed. It allows your component to grab some information from the DOM (for example, the scroll position) before it is potentially changed. Any value returned by this life cycle will be passed as a third parameter, called snapshot, to the componentDidUpdate method.
+
+With the DOM updated, the `componentDidUpdate` method is finally called.
+
+```
+import React from "react";
+
+class MyComponent extends React.Component {
+
+    static getDerivedStateFromProps(props, state) {
+        return null
+    }
+
+    shouldComponentUpdate() {
+        return true
+    }
+
+    render() {
+        return <h1>Hello Lifecycle!</h1>
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState){
+        return 'this is the snapshot'
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('Here my component has updated ♥')
+    }
+}
+
+```
+
+### Mouting
+
+When the component is going to be removed from the DOM, by changing state or props, we are in the disassembly.
+Here we have only one life cycle method, which is:
+
+1. componentWillMount()
+
+This method is executed just before the component is removed. It is used to remove entries and listeners. An example is with the use of setInterval, that even if the component is removed, it will continue to run regardless of the existence of the component that invoked it.
+
+```
+import React from "react";
+
+class MyComponent extends React.Component {
+
+    componentWillUnmount() {
+        console.log('Here my component will disappear 😢')
+    }
+}
+
+```
+
+### Legacy methods
+
+For creating confusion and some hard-to-solve bugs, some React lifecycle methods are being deprecated. In version 17 they can still be used with the UNSAFE\_ prefix in front of their names. To understand more about why they are being deprecated, [see this post on the React blog](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html)
+
+1. UNSAFE_componentWillMount()
+2. UNSAFE_componentWillReceiveProps()
+3. UNSAFE_componentWillUpdate()
+
+### Conclusion
+
+I hope that now you have a better sense of what is the lifecycle! this is definetly an concept that will help you build better and predictable ui in the future. With you have any question about React or other related topics, feel free to reach me at my site https://fernandobelotto.dev

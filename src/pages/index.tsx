@@ -20,10 +20,10 @@ export default function HomePage() {
         </Heading>
         <VStack spacing={2} mt='5' align='flex-start'>
           <Text fontSize={'xl'} >
-            1. If you want to checkout my writing, head up to the <CustomLink to='blog'> blog</CustomLink> page
+            1. {t('If you want to checkout my writing, head up to the')}<CustomLink to='blog'> blog</CustomLink>
           </Text>
           <Text fontSize={'xl'}>
-            2. In case you want to see some open source code, go to <CustomLink to='projects'> projects</CustomLink>
+            2. {t('In case you want to see some open source code, go to')}<CustomLink to='projects'> projects</CustomLink>
           </Text>
           <Text fontSize={'xl'}>3. To know about me and my history, the <CustomLink to='about'> about</CustomLink> is the place</Text>
           <Text fontSize={'xl'}>4. Finally, you can talk see how to reach me at the

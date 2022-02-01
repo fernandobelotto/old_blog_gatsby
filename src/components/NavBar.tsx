@@ -21,8 +21,6 @@ export default function NavBar() {
     const [playOn] = useSound(on);
     const [playOff] = useSound(off);
 
-
-
     return (
         <>
             <Flex
@@ -71,8 +69,6 @@ export default function NavBar() {
                             justify={'flex-end'}
                             direction={'row'}
                             spacing={6}>
-
-                            <LanguageToggle />
                             <Button onClick={() => {
                                 toggleColorMode();
                                 colorMode === 'light' ? playOn() : playOff()
