@@ -19,7 +19,7 @@ export function ContactForm() {
 
     async function onSubmit(values) {
         try {
-            const res = await axios.post('http://localhost:8888', values)
+            const res = await axios.post('https://fernando-form-api.herokuapp.com/', values)
             toast({ title: 'message sent', status: 'success' })
         } catch (e) {
             toast({ title: 'error to sent', status: 'error', description: 'please, send me a message over any of my social accounts' })
@@ -28,11 +28,6 @@ export function ContactForm() {
     }
 
     return <>
-
-
-
-
-
         <Box
             bg={'transparent'}
             borderRadius="lg"
@@ -45,10 +40,6 @@ export function ContactForm() {
         >
             <form onSubmit={handleSubmit(onSubmit)}>
                 <VStack spacing={5}>
-
-
-
-
                     <FormControl isInvalid={errors.name}>
                         <FormLabel htmlFor='name'>{t('Name')}</FormLabel>
                         <InputGroup>
@@ -68,13 +59,11 @@ export function ContactForm() {
                             {errors.name && errors.name.message}
                         </FormErrorMessage>
                     </FormControl>
-
                     <FormControl isInvalid={errors.name}>
                         <FormLabel htmlFor='name'>{t('Name')}</FormLabel>
                         <InputGroup>
                             <InputLeftElement children={<EmailIcon />} />
                             <Input type="email" name="email" placeholder={t('Your Email')}
-
                                 {...register('email', {
                                     required: 'This is required',
                                 })}
@@ -84,7 +73,6 @@ export function ContactForm() {
                             {errors.name && errors.name.message}
                         </FormErrorMessage>
                     </FormControl>
-
                     <FormControl isInvalid={errors.name}>
                         <FormLabel>{t('Message')}</FormLabel>
                         <Textarea
@@ -101,7 +89,6 @@ export function ContactForm() {
                             {errors.name && errors.name.message}
                         </FormErrorMessage>
                     </FormControl>
-
                     <Button mt={4}
                         colorScheme='teal'
                         isLoading={isSubmitting}
@@ -112,6 +99,6 @@ export function ContactForm() {
                 </VStack>
             </form>
         </Box>
-    </>;
+    </>
 }
 
