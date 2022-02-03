@@ -1,7 +1,6 @@
 import { Container, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
-import { Footer } from './Footer/Footer'
-import NavBar from './NavBar'
+import CommandBar from './CommandBar'
 
 export default function Layout({ children, pageTitle, subTitle }: any) {
     return (

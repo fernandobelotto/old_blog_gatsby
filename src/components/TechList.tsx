@@ -64,17 +64,17 @@ export function TechList({ ...props }) {
                 <TechIcon Icon={SiJava} name="Java" link='https://www.oracle.com/java/' />
                 <TechIcon Icon={SiGo} name="Go" link='https://go.dev/' />
                 <TechIcon Icon={SiNestjs} name="NestJs" link='https://nestjs.com/' />
-                <TechIcon Icon={SiQuarkus} name="Quarkus" link='' />
-                <TechIcon Icon={SiSpringboot} name="Spring" link='' />
+                <TechIcon Icon={SiQuarkus} name="Quarkus" link='https://quarkus.io' />
+                <TechIcon Icon={SiSpringboot} name="Spring" link='https://spring.io/' />
                 <TechIcon Icon={SiVercel} name="Vercel" link='https://vercel.com/' />
                 <TechIcon Icon={SiNpm} name="Npm" link='https://www.npmjs.com/' />
-                <TechIcon Icon={SiFirebase} name="Firebase" link='https://firebase.io/' />
+                <TechIcon Icon={SiFirebase} name="Firebase" link='https://firebase.google.com/' />
                 <TechIcon Icon={SiJest} name="Jest" link='https://jestjs.io/' />
                 <TechIcon Icon={SiPwa} name="PWA's" link='https://web.dev/progressive-web-apps/' />
                 <TechIcon Icon={SiSwift} name="PWA's" link='https://www.swift.org/' />
-                <TechIcon Icon={SiPostgresql} name="Postgres" link='' />
-                <TechIcon Icon={SiMongodb} name="PWA's" link='' />
-                <TechIcon Icon={SiRedis} name="PWA's" link='' />
+                <TechIcon Icon={SiPostgresql} name="PostgreSQL" link='https://www.postgresql.org/' />
+                <TechIcon Icon={SiMongodb} name="MongoDB" link='https://www.mongodb.com/' />
+                <TechIcon Icon={SiRedis} name="Redis" link='https://redis.io/' />
             </Flex>
         </Container>
     );

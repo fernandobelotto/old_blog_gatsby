@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap');
 
+:root {
 
-/* font-family: 'Inter', sans-serif;
-font-family: 'Libre Baskerville', serif; */
+--primaryColor: #f2f2f2;
+--secondaryColor: #8f9ba8;
+--backgroundColor: #08070b;
+--commandColor: rgb(85, 0, 0);
+--hoverColor: #212024;
+
+--gradientDegree: 135deg;
+--yellow: #ffff80;
+--pink: #ff80bf;
+--purple: #9580ff;
+--red: #ff9580;
+--orange: #ffca80;
+--green: #8aff80;
+--cyan: #80ffea;
+}

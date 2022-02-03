@@ -1,6 +1,6 @@
 import { Image, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
-import { ContactForm } from '../../components/Contact'
+import { ContactForm } from '../../components/ContactForm'
 import CustomImage from '../../components/CustomImage'
 import Layout from '../../components/Layout'
 import { SocialIconList } from '../../components/SocialIconList'
