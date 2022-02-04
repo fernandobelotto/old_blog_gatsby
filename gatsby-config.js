@@ -6,7 +6,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-layout",
     "gatsby-plugin-mdx",
-
     {
       resolve: "gatsby-source-filesystem",
       options: {
