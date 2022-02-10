@@ -3,7 +3,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import Layout from '../../components/Layout'
 import ProjectCard from '../../components/ProjectCard'
-import { IMAGE_URL_02, PROJECT_02 } from '../../constants/links'
+import { IMAGE_URL_02, PROJECT_02, PROJECT_03 } from '../../constants/links'
 
 export default function ProjecsPage() {
 
@@ -13,21 +13,21 @@ export default function ProjecsPage() {
             name: 'fernandobelotto.dev',
             description: 'The source code of this website',
             imageUrl: IMAGE_URL_02,
-            link: 'https://github.com/fernandobelotto/new_blog',
+            link: 'https://github.com/fernandobelotto/fernandobelotto.dev',
             tags: ['typescript', 'gatsby', 'chakra-ui']
         },
         {
             name: 'Yup Documentation',
             description: "documentation for the yup js library",
             imageUrl: PROJECT_02,
-            link: 'https://github.com/fernandobelotto/new_blog',
+            link: 'https://yup-docs.vercel.app/',
             tags: ['react', 'typescript', 'docussaurus']
         },
         {
             name: 'Nodejs Template',
             description: "express based project for quick api's",
-            imageUrl: PROJECT_02,
-            link: 'https://github.com/fernandobelotto/new_blog',
+            imageUrl: PROJECT_03,
+            link: 'https://github.com/fernandobelotto/node_express_template',
             tags: ['express', 'sequelize', 'mysql']
         },
         {
