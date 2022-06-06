@@ -6,6 +6,7 @@ import {
   SimpleGrid,
   Tag,
   Text,
+  useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
 import dayjs from "dayjs";
@@ -22,6 +23,7 @@ function BlogCard({ post }) {
       textDecor={"none"}
       borderRadius="2xl"
       shadow={"sm"}
+      bg={useColorModeValue('white', 'blue.900')}
       border={"1px solid"}
       borderColor="gray.200"
       onClick={() => {}}
