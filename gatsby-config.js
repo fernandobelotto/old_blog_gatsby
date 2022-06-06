@@ -4,6 +4,19 @@ module.exports = {
     siteUrl: `https://fernandobelotto.dev/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Fernando Belotto`,
+        short_name: `FB`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#1A365D`,
+        icon: `src/images/icon.png`,
+        display: `standalone`,
+      },
+    },
+    "gatsby-plugin-offline",
     "gatsby-plugin-layout",
     "gatsby-plugin-mdx",
     {
